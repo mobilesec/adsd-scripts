@@ -1,0 +1,9 @@
+# 1. reboot to apply updates that may have been downloaded and installed
+25 1	* * *   ~/devicefarm-all-execute-adb-command.sh reboot >/dev/null
+# 2. unlock screen to fully start userspace after reboot (twice for good measure, as sometime unlock doesn't work)
+45 1	* * *	~/automation/unlock-all-screens.sh
+50 1	* * *	~/automation/unlock-all-screens.sh
+# 3. check if we still see all devices (or if some failed to come back up)
+20 4	* * *	~/automation/check-devices-connected.sh
+# 4. check for new firmware release
+50 4	* * *	~/automation/update-firmwareversion-to-database.sh
