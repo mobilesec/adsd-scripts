@@ -1,6 +1,6 @@
 #!/bin/bash
 numdev=`~/devicefarm-get-serialno.sh  | wc -l`
-expected=23
+expected=26
 
 if [ $numdev -lt $expected ]; then
 	echo "Only $numdev devices connected through ADB at the moment, expected $expected:"
